@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 
 # === 音频数据（不要加入 Git）===
+*.lab
 *.mp3
 *.wav
 *.flac
