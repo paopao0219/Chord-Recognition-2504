@@ -8,7 +8,7 @@ from data.preprocess import FeatureTypes
 
 # === 参数配置 ===
 EPOCHS = 20
-BATCH_SIZE = 16
+BATCH_SIZE = 32
 LR = 1e-3
 HIDDEN_SIZE = 128
 NUM_LAYERS = 2
@@ -17,19 +17,19 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 # === 模型定义 ===
-class BiLSTMChordRecognizer(nn.Module):
+class GRUChordRecognizer(nn.Module):
     def __init__(self, input_dim, hidden_dim, num_classes, num_layers=2):
         super().__init__()
-        self.lstm = nn.LSTM(input_size=input_dim,
-                            hidden_size=hidden_dim,
-                            num_layers=num_layers,
-                            batch_first=True,
-                            dropout=0.3,
-                            bidirectional=True)
-        self.classifier = nn.Linear(hidden_dim * 2, num_classes)
+        self.gru = nn.GRU(input_size=input_dim,
+                          hidden_size=hidden_dim,
+                          num_layers=num_layers,
+                          batch_first=True,
+                          dropout=0.3,
+                          bidirectional=True)
+        self.classifier = nn.Linear(hidden_dim*2 , num_classes)
 
     def forward(self, x):
-        out, _ = self.lstm(x)  # out: (B, T, 2H)
+        out, _ = self.gru(x)  # out: (B, T, 2H)
         logits = self.classifier(out)  # (B, T, C)
         return logits
 
@@ -72,10 +72,10 @@ def train():
     train_loader, val_loader, test_loader = dataloader.get_loaders()
 
     # === 初始化模型 ===
-    model = BiLSTMChordRecognizer(input_dim=168,
-                                   hidden_dim=HIDDEN_SIZE,
-                                   num_classes=NUM_CLASSES,
-                                   num_layers=NUM_LAYERS).to(DEVICE)
+    model = GRUChordRecognizer(input_dim=168,
+                                hidden_dim=HIDDEN_SIZE,
+                                num_classes=NUM_CLASSES,
+                                num_layers=NUM_LAYERS).to(DEVICE)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)
     criterion = nn.CrossEntropyLoss(ignore_index=-100)  # 忽略 padding 位
@@ -132,30 +132,12 @@ def train():
             # === 模型保存 ===
             if val_acc > best_val_acc:
                 best_val_acc = val_acc
-                torch.save(model.state_dict(), "best_bilstm_model.pt")
+                torch.save(model.state_dict(), "best_gru_model.pt")
                 print(f"           ✅ Saved best model (acc={val_acc:.4f})")
 
-    print("\n✅ Training complete!")
+    print("✅ Training complete!")
 
-    # === 測試 ===
-    print("\n[Testing best model on test set...]")
-    model.load_state_dict(torch.load("best_bilstm_model.pt"))
-    model.eval()
-    with torch.no_grad():
-        test_loss = 0
-        test_acc = 0
-        test_steps = 0
-        for X, y in tqdm(test_loader, desc="Testing"):
-            X, y = X.to(DEVICE), y.to(DEVICE)
-            logits = model(X)
-            loss = criterion(logits.view(-1, NUM_CLASSES), y.view(-1))
-            acc = accuracy(logits, y)
-            test_loss += loss.item()
-            test_acc += acc
-            test_steps += 1
-        test_loss /= test_steps
-        test_acc /= test_steps
-        print(f"\n📊 Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
+
 
 
 if __name__ == "__main__":
