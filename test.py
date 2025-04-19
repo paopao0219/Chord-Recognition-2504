@@ -15,7 +15,6 @@ NUM_LAYERS = 2
 NUM_CLASSES = 25  # 12maj + 12min + N
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-
 # === 模型定义 ===
 class BiLSTMChordRecognizer(nn.Module):
     def __init__(self, input_dim, hidden_dim, num_classes, num_layers=2):
