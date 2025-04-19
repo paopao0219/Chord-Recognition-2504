@@ -12,7 +12,8 @@ LR = 1e-3
 HIDDEN_SIZE = 128
 NUM_LAYERS = 2
 NUM_CLASSES = 25  # 12maj + 12min + N
-DEVICE = torch.device("cpu")
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 
 # === 模型定义 ===
