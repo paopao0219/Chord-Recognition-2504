@@ -1,0 +1,33 @@
+# === Python 默认 ===
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# === 音频数据（不要加入 Git）===
+*.mp3
+*.wav
+*.flac
+
+# === 模型文件（太大，不需要提交）===
+*.pt
+*.pth
+*.onnx
+
+# === 数据生成结果 ===
+*.zip
+*.npy
+*.npz
+*.csv
+
+# === Jupyter checkpoint 文件 ===
+.ipynb_checkpoints/
+
+# === 操作系统自动文件 ===
+.DS_Store
+Thumbs.db
+
+# === 虚拟环境（可选）===
+venv/
+env/
+.chord_env/

@@ -1,0 +1,9 @@
+mp3:
+  song_hz: 11025
+  inst_len: 3.0
+  skip_interval: 0.5
+
+feature:
+  n_bins: 84
+  bins_per_octave: 12
+  hop_length: 512
