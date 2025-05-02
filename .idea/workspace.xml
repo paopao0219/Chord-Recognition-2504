@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cead0605-3e86-4f85-881c-ae1bf1545d4d" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/AML_project1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainBiLSTM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traingru.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainGRU.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Test_full/switch_to_majmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/switch_to_majmin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/audio_dataloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/audio_dataloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/audio_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/audio_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/chords.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/chords.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/generate_pt.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/generate_pt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/run_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainBiLSTM.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainBiLSTM.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +37,12 @@
     &quot;assignee&quot;: &quot;paopao0219&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/paopao0219/Chord-Recognition-2504.git",
-    "accountId": "ddddc133-5079-4951-a759-1dcdadda747e"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/paopao0219/Chord-Recognition-2504.git&quot;,
+    &quot;accountId&quot;: &quot;ddddc133-5079-4951-a759-1dcdadda747e&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -50,10 +57,15 @@
     "Python.Segment.executor": "Run",
     "Python.audio_dataset.executor": "Run",
     "Python.chords.executor": "Run",
+    "Python.datamove.executor": "Run",
     "Python.generate_pt.executor": "Run",
+    "Python.lab.executor": "Run",
+    "Python.match.executor": "Run",
     "Python.preprocess.executor": "Run",
+    "Python.removejay.executor": "Run",
     "Python.switch_to_majmin.executor": "Run",
     "Python.test.executor": "Run",
+    "Python.trainBiLSTM.executor": "Run",
     "Python.traingru.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",

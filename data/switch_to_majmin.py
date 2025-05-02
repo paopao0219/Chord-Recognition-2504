@@ -58,5 +58,5 @@ def process_all_lab_files(folder_path):
 
 
 if __name__ == "__main__":
-    folder_path = "lab"  # 替换为你自己的路径
+    folder_path = "./Test_full/test_jay_"  # 替换为你自己的路径
     process_all_lab_files(folder_path)
